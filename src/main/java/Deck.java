@@ -24,5 +24,9 @@ public class Deck {
 		return cardCollection.size();
 	}
 
+	public Card removeTopCard(){
+		return cardCollection.remove(0);
+	}
+
 
 }
