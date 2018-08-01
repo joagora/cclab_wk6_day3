@@ -29,6 +29,28 @@ public class Dealer {
 		this.gamePlayers.add(player);
 	}
 
+	public void determineWhoWins(){
+		//declare a winner
+		Player winner = null;
+		//for each player
+		for (Player player:	this.gamePlayers		) {
+			if (winner == null){
+				winner = player;
+			}
+			if (didFirstOneWin(player , winner)){
+				winner = player;
+			}
+
+		}
+		//decide if they are the winner
+	}
+
+	public boolean didFirstOneWin(ArrayList<Card> hand1, ArrayList<Card> hand2){
+		Card card1 = hand1.get(0);
+		Card card2 = hand2.get(0);
+
+		return card1.isStrongerThan(card2);
+	}
 
 
 
