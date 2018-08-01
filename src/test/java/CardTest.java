@@ -8,12 +8,14 @@ public class CardTest {
 	Card aceOfSpades;
 	Card nineOfSpades;
 	Card kingOfClubs;
+	Card nineOfClubs;
 	@Before
 	public void before(){
 
 		aceOfSpades = new Card(SuitType.SPADES, NumberType.ACE);
 		nineOfSpades = new Card(SuitType.SPADES, NumberType.NINE);
 		kingOfClubs = new Card(SuitType.CLUBS, NumberType.KING);
+		nineOfClubs = new Card(SuitType.CLUBS, NumberType.NINE);
 	}
 
 	@Test
@@ -27,16 +29,6 @@ public class CardTest {
 	}
 
 	@Test
-	public void checkIfStrongerNumberTrue(){
-		assertEquals(true, aceOfSpades.isStrongerThan(nineOfSpades));
-	}
-
-	@Test
-	public void checkIfStrongerNumberFalse(){
-		assertEquals(false, nineOfSpades.isStrongerThan(aceOfSpades));
-	}
-
-	@Test
 	public void checkIfSuitStrongerTrue(){
 		assertEquals(true, aceOfSpades.isStrongerSuit(kingOfClubs));
 	}
@@ -45,5 +37,26 @@ public class CardTest {
 	public void checkIfSuitStrongerFalse(){
 		assertEquals(false, kingOfClubs.isStrongerSuit(nineOfSpades));
 	}
+
+	@Test
+	public void checkIfStrongeSameSuitDiffNumbersFirstStronger(){
+		assertEquals(true, aceOfSpades.isStrongerThan(nineOfSpades));
+	}
+
+	@Test
+	public void checkIfStrongerSameSuitSecondNumberStronger(){
+		assertEquals(false, nineOfSpades.isStrongerThan(aceOfSpades));
+	}
+
+	@Test
+	public void checkIfStrongerSecondSuitStrongerNumSame(){
+		assertEquals(false, nineOfClubs.isStrongerThan(nineOfSpades));
+	}
+
+	@Test
+	public void checkIfStrongerFirstSuitStrongerNumSame(){
+		assertEquals(true, nineOfSpades.isStrongerThan(nineOfClubs));
+	}
+
 
 }

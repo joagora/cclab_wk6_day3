@@ -18,5 +18,8 @@ public class Player {
 		this.hand.add(card);
 	}
 
+	public Card pickCard(){
+		return this.hand.get(0);
+	}
 }
 
