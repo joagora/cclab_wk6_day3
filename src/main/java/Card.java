@@ -17,16 +17,26 @@ public class Card {
 	}
 
 	public boolean isStrongerThan(Card cardToCompareTo){
-
+		Boolean flag;
 		if ( this.number.getValue() > cardToCompareTo.number.getValue()){
-			return true;
+			flag = true;
 		}else if ( this.number.getValue() == cardToCompareTo.number.getValue()) {
 //		suit logic
-			return false; //TODO
+			flag = isStrongerSuit(cardToCompareTo);
 		}else{
+			flag = false;
+		}
+		return flag;
+
+	}
+
+
+	public boolean isStrongerSuit(Card cardToCompareTo){
+		if (this.suit.getValue() > cardToCompareTo.suit.getValue()){
+			return true;
+		} else {
 			return false;
 		}
-
 	}
 
 }
