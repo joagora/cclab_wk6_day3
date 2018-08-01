@@ -28,4 +28,13 @@ public class DealerTest {
 		assertEquals(1,player.cardCount());
 	}
 
+	@Test
+	public void canAddPlayers(){
+		dealer.addPlayerToGame(player);
+		assertEquals(1, dealer.countPlayers());
+	}
+
+
+
+
 }
